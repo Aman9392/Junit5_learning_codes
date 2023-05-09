@@ -53,6 +53,16 @@ import java.util.List;
 			}
 			return bookTitles;
 		}
+		
+		
+		public Book getBookByTitle(String title) {
+			for(Book book : listOfBooks) {
+				if(title.equals(book.getTitle())) {
+					return book;
+				}
+			}
+			throw new BookNotFoundException("Book Not Found in BookStore");
+		}
 	
 	
 }
