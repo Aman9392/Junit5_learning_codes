@@ -1,15 +1,16 @@
-package com.TestCase.AssertArrayEquals;
+package com.TestCase.Assert.ArrayIterable;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
+import java.util.List;
+import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import com.junit.Aman.BookService.*;
 import com.junit.Aman.Model.*;
 
-public class AssertArrayEquals {
-
+public class ArrayIterable {
 	@Test
-	public void assertArrayEqualsWithNoMessage() {
+	public void assertIterableEqualsWithNoMessage() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
@@ -20,13 +21,18 @@ public class AssertArrayEquals {
 		bookService.addBook(headFirstDesignPatternBook);
 		bookService.addBook(headFirstJavascriptBook);
 		
-		String[] actualBookIds = bookService.getBookIdsByPublisher("Wrox");
+		List<String> actualTitles = bookService.getBookTitlesByPublisher("Wrox");
 		
-		assertArrayEquals(new String[] {"1", "3"}, actualBookIds);
+		List<String> expectedTitles = new ArrayList<>();
+		expectedTitles.add("Head First Java");
+		expectedTitles.add("Head First Javascript");
+		
+		assertIterableEquals(expectedTitles, actualTitles);
+		
 	}
 	
 	@Test
-	public void assertArrayEqualsWithMessage() {
+	public void assertIterableEqualsWithMessage() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
@@ -37,13 +43,17 @@ public class AssertArrayEquals {
 		bookService.addBook(headFirstDesignPatternBook);
 		bookService.addBook(headFirstJavascriptBook);
 		
-		String[] actualBookIds = bookService.getBookIdsByPublisher("Wrox");
+		List<String> actualTitles = bookService.getBookTitlesByPublisher("Wrox");
 		
-		assertArrayEquals(new String[] {"1", "3"}, actualBookIds, "bookIds didnt match !");
+		List<String> expectedTitles = new ArrayList<>();
+		expectedTitles.add("Head First Java");
+		expectedTitles.add("Head First Javascript");
+		
+		assertIterableEquals(expectedTitles, actualTitles, "Book titles didnt match !");
 	}
 	
 	@Test
-	public void assertArrayEqualsWithMessageSupplier() {
+	public void assertIterableEqualsWithMessageSupplier() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
@@ -54,8 +64,12 @@ public class AssertArrayEquals {
 		bookService.addBook(headFirstDesignPatternBook);
 		bookService.addBook(headFirstJavascriptBook);
 		
-		String[] actualBookIds = bookService.getBookIdsByPublisher("Wrox");
+		List<String> actualTitles = bookService.getBookTitlesByPublisher("Wrox");
 		
-		assertArrayEquals(new String[] {"1", "3"}, actualBookIds, () -> "bookIds didnt match !");
+		List<String> expectedTitles = new ArrayList<>();
+		expectedTitles.add("Head First Java");
+		expectedTitles.add("Head First Javascript");
+		
+		assertIterableEquals(expectedTitles, actualTitles, () -> "Book titles didnt match !");
 	}
 }

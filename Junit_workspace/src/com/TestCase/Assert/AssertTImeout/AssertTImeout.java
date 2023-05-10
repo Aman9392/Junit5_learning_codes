@@ -1,4 +1,4 @@
-package com.TestCase.AssertTImeout;
+package com.TestCase.Assert.AssertTImeout;
 
 import org.junit.jupiter.api.Test;
 import com.junit.Aman.BookService.*;

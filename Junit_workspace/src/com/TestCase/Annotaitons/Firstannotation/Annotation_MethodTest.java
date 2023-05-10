@@ -1,4 +1,4 @@
-package com.TestCase.Annotation;
+package com.TestCase.Annotaitons.Firstannotation;
 
 import static org.junit.jupiter.api.Assertions.*;
 

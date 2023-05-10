@@ -1,17 +1,16 @@
-package com.TestCase.AssertTrue;
+package com.TestCase.Assert.AssertFalse;
 import org.junit.jupiter.api.Test;
 import com.junit.Aman.BookService.*;
 import com.junit.Aman.Model.*;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 
 import java.util.List;
+public class AssertFalse {
 
-
-public class AssertTrue {
-	
 	@Test
-	public void assertTrueWithNoMessage() {
+	public void assertFalseWithNoMessage() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
@@ -20,79 +19,77 @@ public class AssertTrue {
 		
 		List<Book> listOfBooks = bookService.books();
 		
-		assertTrue(listOfBooks.isEmpty());
-		
-	} 
-	
-	
-	@Test
-	public void assertTrueWithBooleanSupplierAndNoMessage() {
-		BookService bookService = new BookService();
-		
-		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
-		
-     	bookService.addBook(headFirstJavaBook);
-		
-		List<Book> listOfBooks = bookService.books();
-		
-		assertTrue(() -> listOfBooks.isEmpty());
+		assertFalse(listOfBooks.isEmpty());
 		
 	}
 	
 	@Test
-	public void assertTrueWithMessage() {
-		BookService bookService = new BookService();
-		
-		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
-		
-	    bookService.addBook(headFirstJavaBook);
-		
-		List<Book> listOfBooks = bookService.books();
-		
-		assertTrue(listOfBooks.isEmpty(), "List of Books Is not Empty");
-		
-	} 
-	
-	@Test
-	public void assertTrueWithBooleanSupplierAndMessage() {
+	public void assertFalseWithBooleanSupplierAndNoMessage() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
 		
 		bookService.addBook(headFirstJavaBook);
-	
+		
 		List<Book> listOfBooks = bookService.books();
 		
-		assertTrue(() -> listOfBooks.isEmpty(), "List of books is not empty!");
+		assertFalse(() -> listOfBooks.isEmpty());
 		
 	}
 	
 	@Test
-	public void assertTrueWithMessageSupplier() {
+	public void assertFalseWithMessage() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
 		
- 		bookService.addBook(headFirstJavaBook);
+		bookService.addBook(headFirstJavaBook);
 		
 		List<Book> listOfBooks = bookService.books();
 		
-		assertTrue(listOfBooks.isEmpty(), () -> "List of books is not empty!");
+		assertFalse(listOfBooks.isEmpty(), "List of books is empty!");
 		
 	}
 	
 	@Test
-	public void assertTrueWithBooleanSupplierAndMessageSupplier() {
+	public void assertFalseWithBooleanSupplierAndMessage() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
 		
-      	bookService.addBook(headFirstJavaBook);
+		bookService.addBook(headFirstJavaBook);
 		
 		List<Book> listOfBooks = bookService.books();
 		
-		assertTrue(() -> listOfBooks.isEmpty(), () -> "List of books is not empty!");
+		assertFalse(() -> listOfBooks.isEmpty(), "List of books is not empty!");
 		
 	}
 	
+	@Test
+	public void assertFalseWithMessageSupplier() {
+		BookService bookService = new BookService();
+		
+		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
+		
+		bookService.addBook(headFirstJavaBook);
+		
+		List<Book> listOfBooks = bookService.books();
+		
+		assertFalse(listOfBooks.isEmpty(), () -> "List of books is empty!");
+		
+	}
+	
+	@Test
+	public void assertFalseWithBooleanSupplierAndMessageSupplier() {
+		BookService bookService = new BookService();
+		
+		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
+		
+		bookService.addBook(headFirstJavaBook);
+		
+		List<Book> listOfBooks = bookService.books();
+		
+		assertFalse(() -> listOfBooks.isEmpty(), () -> "List of books is empty!");
+		
+	}
 }

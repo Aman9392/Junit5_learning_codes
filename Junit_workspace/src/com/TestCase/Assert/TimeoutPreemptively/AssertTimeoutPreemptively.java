@@ -1,4 +1,4 @@
-package com.TestCase.AssertTimeoutPreemptively;
+package com.TestCase.Assert.TimeoutPreemptively;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;

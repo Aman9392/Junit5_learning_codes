@@ -1,11 +1,13 @@
-package com.TestCase.AssertNotEquals;
+package com.TestCase.Assert.AssertNotNull;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import com.junit.Aman.BookService.*;
 import com.junit.Aman.Model.*;
 
-public class AssertNotEquals {
+public class AssertNotNull {
+
 	@Test
 	public void assertNotNullWithNoMessage() {
 		BookService bookService = new BookService();

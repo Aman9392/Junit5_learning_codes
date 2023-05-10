@@ -1,14 +1,14 @@
-package com.TestCase.AssertNull;
-
-import static org.junit.jupiter.api.Assertions.assertNull;
+package com.TestCase.Assert.AssertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+
 import com.junit.Aman.BookService.*;
 import com.junit.Aman.Model.*;
-public class AssertNull {
+public class AssertEquals {
 
 	@Test
-	public void assertNullWithNoMessage() {
+	public void assertEqualsWithNoMessage() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
@@ -17,12 +17,14 @@ public class AssertNull {
 		bookService.addBook(headFirstJavaBook);
 		bookService.addBook(headFirstDesignPatternBook);
 		
-		Book actualBook = bookService.getBookById("4");
-		assertNull(actualBook);
+		Book actualBook = bookService.getBookById("1");
+		
+		assertEquals("1", actualBook.getBookId());
+		assertEquals("Head First Java", actualBook.getTitle());
 	}
 	
 	@Test
-	public void assertNullWithMessage() {
+	public void assertEqualsWithMessage() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
@@ -31,12 +33,14 @@ public class AssertNull {
 		bookService.addBook(headFirstJavaBook);
 		bookService.addBook(headFirstDesignPatternBook);
 		
-		Book actualBook = bookService.getBookById("4");
-		assertNull(actualBook, "Book is not null !");
+		Book actualBook = bookService.getBookById("1");
+		
+		assertEquals("1", actualBook.getBookId());
+		assertEquals("Head First Java", actualBook.getTitle(), "Book title didnt match!");
 	}
 	
 	@Test
-	public void assertNullWithMessageSupplier() {
+	public void assertEqualsWithMessageSupplier() {
 		BookService bookService = new BookService();
 		
 		Book headFirstJavaBook = new Book("1", "Head First Java", "Wrox");
@@ -45,7 +49,9 @@ public class AssertNull {
 		bookService.addBook(headFirstJavaBook);
 		bookService.addBook(headFirstDesignPatternBook);
 		
-		Book actualBook = bookService.getBookById("4");
-		assertNull(actualBook, () -> "Book is not null !");
+		Book actualBook = bookService.getBookById("1");
+		
+		assertEquals("1", actualBook.getBookId());
+		assertEquals("Head First Java", actualBook.getTitle(), () -> "Book title didnt match!");
 	}
 }
