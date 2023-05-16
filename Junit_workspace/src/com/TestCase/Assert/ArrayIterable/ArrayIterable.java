@@ -1,4 +1,4 @@
-package com.TestCase.Assert.ArrayIterable;
+ package com.TestCase.Assert.ArrayIterable;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 

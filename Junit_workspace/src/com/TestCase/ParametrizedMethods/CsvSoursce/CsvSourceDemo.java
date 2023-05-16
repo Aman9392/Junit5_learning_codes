@@ -21,10 +21,21 @@ public class CsvSourceDemo {
 	@ParameterizedTest
 	@CsvSource({
 		"Aman ,'namA'",
-		"Car , 'raC'"
+		"Car , 'raC'",
+		"Hello ,'' ",
+		"Book,"
 		})
      public void CSVSourceDemoWithSingleQuotes(String First , String Seound) {
     	assertNotNull(First);
     	assertNotNull(Seound);
+     }
+	
+	@ParameterizedTest
+	@CsvSource({
+		"One ,Two",
+		})
+     public void CSVSourceDemoWithInteger(String First , Integer Secound) {
+    	assertNotNull(First);
+    	assertNotNull(Secound);
      }
 }
