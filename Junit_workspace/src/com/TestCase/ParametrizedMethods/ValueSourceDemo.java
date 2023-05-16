@@ -22,7 +22,7 @@ public void  testEvenValue() {
 }
 
 @ParameterizedTest
-@ValueSource(ints = {2, 4, 6, 8, 12,7, 10})
+@ValueSource(ints = {2, 4, 6, 8, 12,7,10})
 public void  testEvenValueParametrizedTest(int number) {
 	ParametrizedExample  calculator = new ParametrizedExample();
 	assertTrue(calculator.isEvenNumber(number));
