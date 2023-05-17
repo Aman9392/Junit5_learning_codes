@@ -9,7 +9,6 @@ import com.junit.ParametrizedExample.*;
 
 
 public class ValueSourceDemo {
-	
 
 @Test
 public void  testEvenValue() {
