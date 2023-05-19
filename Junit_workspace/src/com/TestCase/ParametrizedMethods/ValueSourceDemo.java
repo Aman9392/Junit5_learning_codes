@@ -12,7 +12,7 @@ public class ValueSourceDemo {
 
 @Test
 public void  testEvenValue() {
-	ParametrizedExample  calculator = new ParametrizedExample();
+	ParametrizedExamples  calculator = new ParametrizedExamples();
 	assertTrue(calculator.isEvenNumber(2));
 	assertTrue(calculator.isEvenNumber(4));
 	assertTrue(calculator.isEvenNumber(6));
@@ -23,7 +23,7 @@ public void  testEvenValue() {
 @ParameterizedTest
 @ValueSource(ints = {2, 4, 6, 8, 12,7,10})
 public void  testEvenValueParametrizedTest(int number) {
-	ParametrizedExample  calculator = new ParametrizedExample();
+	ParametrizedExamples  calculator = new ParametrizedExamples();
 	assertTrue(calculator.isEvenNumber(number));
 }
 
